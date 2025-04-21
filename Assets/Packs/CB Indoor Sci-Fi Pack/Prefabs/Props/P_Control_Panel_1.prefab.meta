@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d06120aa166b04c4d8e207680908060b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157033
+  packageName: CB Indoor Sci-Fi Pack
+  packageVersion: 1.2
+  assetPath: Assets/Packs/CB Indoor Sci-Fi Pack/Prefabs/Props/P_Control_Panel_1.prefab
+  uploadId: 358850
