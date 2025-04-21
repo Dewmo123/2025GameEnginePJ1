@@ -25,7 +25,6 @@ class PacketHandler
     internal static void S_RoomListHandler(PacketSession session, IPacket packet)
     {
         var listPacket = packet as S_RoomList;
-        Debug.Log("asdas");
         UIManager.Instance.GetCompo<RoomListUI>().SetList(listPacket.roomInfos);
     }
 

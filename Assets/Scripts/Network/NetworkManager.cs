@@ -12,7 +12,7 @@ namespace Scripts.Network
     public class NetworkManager : MonoBehaviour
     {
         private static NetworkManager _instance;
-        public static NetworkManager Instance { get; private set; }
+        public static NetworkManager Instance => _instance;
 
         private Connector _connector;
         private ServerSession _session;
@@ -26,6 +26,8 @@ namespace Scripts.Network
             IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 7777);
             _connector.Connect(endPoint, () => _session = new ServerSession(), 1);
         }
+        public void SendPacket(IPacket packet)
+            => _session.Send(packet.Serialize());
 
         private void Update()
         {
