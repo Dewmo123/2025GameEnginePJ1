@@ -5,11 +5,11 @@ namespace Assets.Scripts.Entities
 {
     public class EntityAnimator : MonoBehaviour, IEntityComponent
     {
-        [SerializeField] private Animator animator;
+        [SerializeField] protected Animator animator;
 
-        private Entity _entity;
+        private NetworkEntity _entity;
         private string _currentAnimation;
-        public void Initialize(Entity entity)
+        public void Initialize(NetworkEntity entity)
         {
             _entity = entity;
         }

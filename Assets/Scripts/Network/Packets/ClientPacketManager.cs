@@ -1,16 +1,14 @@
+using Core.EventSystem;
 using ServerCore;
 using System;
 using System.Collections.Generic;
 
 class PacketManager
 {
-	#region Singleton
-	static PacketManager _instance = new PacketManager();
-	public static PacketManager Instance { get { return _instance; } }
-	#endregion
-
-	PacketManager()
+	private PacketHandler _packetHandler;
+	public PacketManager(EventChannelSO packetChannel)
 	{
+		_packetHandler = new PacketHandler(packetChannel);
 		Register();
 	}
 
@@ -20,17 +18,17 @@ class PacketManager
 	public void Register()
 	{
 		_onRecv.Add((ushort)PacketID.S_RoomEnter, MakePacket<S_RoomEnter>);
-		_handler.Add((ushort)PacketID.S_RoomEnter, PacketHandler.S_RoomEnterHandler);
+		_handler.Add((ushort)PacketID.S_RoomEnter, _packetHandler.S_RoomEnterHandler);
 		_onRecv.Add((ushort)PacketID.S_RoomExit, MakePacket<S_RoomExit>);
-		_handler.Add((ushort)PacketID.S_RoomExit, PacketHandler.S_RoomExitHandler);
+		_handler.Add((ushort)PacketID.S_RoomExit, _packetHandler.S_RoomExitHandler);
 		_onRecv.Add((ushort)PacketID.S_RoomList, MakePacket<S_RoomList>);
-		_handler.Add((ushort)PacketID.S_RoomList, PacketHandler.S_RoomListHandler);
+		_handler.Add((ushort)PacketID.S_RoomList, _packetHandler.S_RoomListHandler);
 		_onRecv.Add((ushort)PacketID.S_TestText, MakePacket<S_TestText>);
-		_handler.Add((ushort)PacketID.S_TestText, PacketHandler.S_TestTextHandler);
+		_handler.Add((ushort)PacketID.S_TestText, _packetHandler.S_TestTextHandler);
 		_onRecv.Add((ushort)PacketID.S_EnterRoomFirst, MakePacket<S_EnterRoomFirst>);
-		_handler.Add((ushort)PacketID.S_EnterRoomFirst, PacketHandler.S_EnterRoomFirstHandler);
+		_handler.Add((ushort)PacketID.S_EnterRoomFirst, _packetHandler.S_EnterRoomFirstHandler);
 		_onRecv.Add((ushort)PacketID.S_UpdateInfos, MakePacket<S_UpdateInfos>);
-		_handler.Add((ushort)PacketID.S_UpdateInfos, PacketHandler.S_UpdateInfosHandler);
+		_handler.Add((ushort)PacketID.S_UpdateInfos, _packetHandler.S_UpdateInfosHandler);
 
 	}
 

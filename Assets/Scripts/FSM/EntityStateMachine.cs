@@ -11,7 +11,7 @@ namespace Blade.FSM
 
         private Dictionary<string, EntityState> _states;
 
-        public EntityStateMachine(Entity entity, StateDataSO[] stateList)
+        public EntityStateMachine(NetworkEntity entity, StateDataSO[] stateList)
         {
             _states = new Dictionary<string, EntityState>();
             foreach (StateDataSO state in stateList)

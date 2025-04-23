@@ -1,4 +1,6 @@
-﻿using Scripts.Network;
+﻿using Core.EventSystem;
+using Scripts.Core.EventSystem;
+using Scripts.Network;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +8,11 @@ using UnityEngine.UI;
 
 namespace Scripts.UI.Room
 {
-    public class RoomListUI : MonoBehaviour, INetworkUI
+    public class RoomListUI : MonoBehaviour
     {
         [SerializeField] private GameObject attribute;
         [SerializeField] private int countPerPage = 5;
-
+        [SerializeField] private EventChannelSO _packetEvent;
         private List<RoomAttributeUI> _attributes;
         private List<RoomInfoPacket> _roomInfos;
 
@@ -28,24 +30,26 @@ namespace Scripts.UI.Room
                 _attributes[i].GetComponent<Button>().onClick.AddListener(() => SetRoomId(k + 1));
             }
             ResetAttributes();
+            _packetEvent.AddListener<HandleRoomList>(SetList);
         }
+        private void OnDestroy()
+        {
+            _packetEvent.RemoveListener<HandleRoomList>(SetList);
+            foreach (var item in _attributes)
+                item.GetComponent<Button>().onClick.RemoveAllListeners();
+;        }
+
 
         private void SetRoomId(int roomId)
         {
             Debug.Log(roomId);
             _currentRoomId = roomId;
         }
-        private void OnDestroy()
-        {
-            foreach (var item in _attributes)
-                item.GetComponent<Button>().onClick.RemoveAllListeners();
-;        }
-
         public void ResetAttributes()
             => _attributes.ForEach(att => att.ClearUI());
-        public void SetList(List<RoomInfoPacket> roomInfos)
+        public void SetList(HandleRoomList roomInfos)
         {
-            _roomInfos = roomInfos;
+            _roomInfos = roomInfos.packet.roomInfos;
             _currentCount = 0;
             SetNextAttributes();
         }

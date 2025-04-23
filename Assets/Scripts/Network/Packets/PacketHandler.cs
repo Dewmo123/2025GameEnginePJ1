@@ -1,4 +1,9 @@
-﻿using Scripts.Core.Managers;
+﻿using Core.EventSystem;
+using Scripts.Core;
+using Scripts.Core.EventSystem;
+using Scripts.Core.Managers;
+using Scripts.Entities.Players;
+using Scripts.Entities.Players.OtherPlayers;
 using Scripts.UI.Room;
 using ServerCore;
 using System;
@@ -6,39 +11,57 @@ using UnityEngine;
 
 class PacketHandler
 {
-    internal static void S_EnterRoomFirstHandler(PacketSession session, IPacket packet)
+    private EventChannelSO _packetChannel;
+    public PacketHandler(EventChannelSO packetChannel)
     {
-        var players = packet as S_EnterRoomFirst;
-        Debug.Log($"myIndex : {players.myIndex}");
+        _packetChannel = packetChannel;
     }
 
-    internal static void S_RoomEnterHandler(PacketSession session, IPacket packet)
+    internal void S_EnterRoomFirstHandler(PacketSession session, IPacket packet)
+    {
+        var evt = PacketEvents.HandleFirstEnterRoom;
+        var firstPacket = packet as S_EnterRoomFirst;
+        evt.packet = firstPacket;
+        _packetChannel.InvokeEvent(evt);
+        PlayerManager.Instance.InitPlayer(firstPacket);
+    }
+
+    internal void S_RoomEnterHandler(PacketSession session, IPacket packet)
     {
         var roomEnter = packet as S_RoomEnter;
         Debug.Log($"newPlayer: {roomEnter.newPlayer.index}");
     }
 
-    internal static void S_RoomExitHandler(PacketSession session, IPacket packet)
+    internal void S_RoomExitHandler(PacketSession session, IPacket packet)
     {
     }
 
-    internal static void S_RoomListHandler(PacketSession session, IPacket packet)
+    internal void S_RoomListHandler(PacketSession session, IPacket packet)
     {
-        var listPacket = packet as S_RoomList;
-        UIManager.Instance.GetCompo<RoomListUI>().SetList(listPacket.roomInfos);
+        var evt = PacketEvents.HandleRoomList;
+        evt.packet = packet as S_RoomList;
+        _packetChannel.InvokeEvent(evt);
     }
 
-    internal static void S_TestTextHandler(PacketSession session, IPacket packet)
+    internal void S_TestTextHandler(PacketSession session, IPacket packet)
     {
         var test = packet as S_TestText;
     }
 
-    internal static void S_UpdateInfosHandler(PacketSession session, IPacket packet)
+    internal void S_UpdateInfosHandler(PacketSession session, IPacket packet)
     {
         var p = packet as S_UpdateInfos;
         foreach (var item in p.playerInfos)
         {
-            Debug.Log($"{item.index}");
+            var player = PlayerManager.Instance.GetPlayerById(item.index);
+            if (player == default)
+                continue;
+            if (player.Index == PlayerManager.Instance.MyIndex)
+                continue;
+            Vector2 vec = new Vector2(item.direction.x, item.direction.z);
+            var movement = player.GetCompo<OtherPlayerMovement>();
+            movement.Synchronize(item);
+            player.transform.position = item.position.ToVector3();
         }
     }
 }

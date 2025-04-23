@@ -11,6 +11,12 @@ namespace DummyClient
 {
     public class ServerSession : PacketSession
     {
+        private PacketQueue _packetQueue;
+        public ServerSession(PacketQueue packetQueue)
+        {
+            _packetQueue = packetQueue;
+        }
+
         public override void OnConnected(EndPoint endPoint)
         {
             Console.WriteLine($"OnConnected : {endPoint}");
@@ -25,7 +31,7 @@ namespace DummyClient
 
         public override void OnRecvPacket(ArraySegment<byte> buffer)
         {
-            PacketQueue.Instance.Push(buffer);
+            _packetQueue.Push(buffer);
         }
 
         public override void OnSend(int numOfBytes)

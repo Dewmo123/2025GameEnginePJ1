@@ -4,8 +4,13 @@ namespace Scripts.Entities.Players.States
 {
     public class PlayerAimIdleState : PlayerAimState
     {
-        public PlayerAimIdleState(Entity entity, int animationHash) : base(entity, animationHash)
+        public PlayerAimIdleState(NetworkEntity entity, int animationHash) : base(entity, animationHash)
         {
+        }
+        public override void Enter()
+        {
+            base.Enter();
+            _movement.StopImmediately();
         }
         public override void Update()
         {

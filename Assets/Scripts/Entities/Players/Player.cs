@@ -1,33 +1,18 @@
-using Blade.FSM;
-using Scripts.Core.GameSystem;
-using System;
+﻿using Scripts.Core;
 using UnityEngine;
 
 namespace Scripts.Entities.Players
 {
-    public class Player : Entity
+    public class Player : NetworkEntity
     {
-        [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
-        [SerializeField] private StateDataSO[] states;
-
-        private EntityStateMachine _stateMachine;
-        protected override void Awake()
+        public int Index { get; private set; } = 0;
+        public bool IsOwner { get; private set; } = false;
+        public virtual void Init(PlayerInfoPacket packet,bool isOwner)
         {
-            base.Awake();
-            _stateMachine = new EntityStateMachine(this, states);
-            ChangeState("Idle");
-            PlayerInput.OnAimEvent += HandleAim;
+            Index = packet.index;
+            IsOwner = isOwner;
+            transform.position = packet.position.ToVector3();
+            base.InitEntity();
         }
-        private void Update()
-        {
-            _stateMachine.UpdateStateMachine();
-        }
-        private void HandleAim(bool obj)
-        {
-            if (obj)
-                ChangeState("AimIdle");
-        }
-
-        public void ChangeState(string newStateName) => _stateMachine.ChangeState(newStateName);
     }
 }

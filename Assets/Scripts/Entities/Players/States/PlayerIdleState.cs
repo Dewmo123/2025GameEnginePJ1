@@ -2,8 +2,13 @@
 {
     public class PlayerIdleState : PlayerState
     {
-        public PlayerIdleState(Entity entity, int animationHash) : base(entity, animationHash)
+        public PlayerIdleState(NetworkEntity entity, int animationHash) : base(entity, animationHash)
         {
+        }
+        public override void Enter()
+        {
+            base.Enter();
+            _movement.StopImmediately();
         }
     }
 }

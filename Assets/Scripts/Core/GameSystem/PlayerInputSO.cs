@@ -77,6 +77,7 @@ namespace Scripts.Core.GameSystem
             }
             return _worldPosition;
         }
+        public Ray GetCameraRay()=> Camera.main.ScreenPointToRay(_screenPosition);
         public void OnSprint(InputAction.CallbackContext context)
         {
         }
