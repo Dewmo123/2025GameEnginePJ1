@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Net;
+﻿using Scripts.Network.Packets;
 using ServerCore;
-using System.Threading;
-using Scripts.Network;
-using Scripts.Network.Packets;
+using System;
+using System.Net;
 
 namespace DummyClient
 {

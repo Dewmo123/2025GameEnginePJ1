@@ -23,13 +23,13 @@ class PacketHandler
         var firstPacket = packet as S_EnterRoomFirst;
         evt.packet = firstPacket;
         _packetChannel.InvokeEvent(evt);
-        PlayerManager.Instance.InitPlayer(firstPacket);
+        PlayerManager.Instance.FirstInitPlayer(firstPacket);
     }
 
     internal void S_RoomEnterHandler(PacketSession session, IPacket packet)
     {
         var roomEnter = packet as S_RoomEnter;
-        Debug.Log($"newPlayer: {roomEnter.newPlayer.index}");
+        PlayerManager.Instance.InitOtherPlayer(roomEnter.newPlayer);
     }
 
     internal void S_RoomExitHandler(PacketSession session, IPacket packet)
@@ -58,10 +58,18 @@ class PacketHandler
                 continue;
             if (player.Index == PlayerManager.Instance.MyIndex)
                 continue;
-            Vector2 vec = new Vector2(item.direction.x, item.direction.z);
             var movement = player.GetCompo<OtherPlayerMovement>();
             movement.Synchronize(item);
-            player.transform.position = item.position.ToVector3();
+        }
+        foreach(var item in p.snapshots)
+        {
+            var player = PlayerManager.Instance.GetPlayerById(item.index);
+            if (player == default)
+                continue;
+            if (player.Index == PlayerManager.Instance.MyIndex)
+                continue;
+            var movement = player.GetCompo<OtherPlayerMovement>();
+            movement.AddSnapshot(item);
         }
     }
 }

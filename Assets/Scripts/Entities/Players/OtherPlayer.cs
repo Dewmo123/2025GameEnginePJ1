@@ -9,10 +9,8 @@ namespace Scripts.Entities.Players
         public override void Init(PlayerInfoPacket packet,bool  isOwner)
         {
             base.Init(packet,isOwner);
-            Vector2 vec = new Vector2(packet.direction.x, packet.direction.z);
             var movement = GetCompo<OtherPlayerMovement>();
-            movement.SetMovement(vec);
-            movement.SetServerPosition(packet.position.ToVector3());
+            transform.position = packet.position.ToVector3();
         }
     }
 }

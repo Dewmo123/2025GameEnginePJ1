@@ -2,6 +2,7 @@ using Core.EventSystem;
 using ServerCore;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 class PacketManager
 {
@@ -29,13 +30,11 @@ class PacketManager
 		_handler.Add((ushort)PacketID.S_EnterRoomFirst, _packetHandler.S_EnterRoomFirstHandler);
 		_onRecv.Add((ushort)PacketID.S_UpdateInfos, MakePacket<S_UpdateInfos>);
 		_handler.Add((ushort)PacketID.S_UpdateInfos, _packetHandler.S_UpdateInfosHandler);
-
-	}
+    }
 
 	public void OnRecvPacket(PacketSession session, ArraySegment<byte> buffer)
 	{
 		ushort packetId = PacketUtility.ReadPacketID(buffer);
-
 		Action<PacketSession, ArraySegment<byte>> action = null;
 		if (_onRecv.TryGetValue(packetId, out action))
 			action.Invoke(session, buffer);

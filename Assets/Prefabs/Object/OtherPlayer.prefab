@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3428697585157673374}
   - component: {fileID: 1569300754489603228}
-  - component: {fileID: 5150831065719543808}
+  - component: {fileID: 8236727163749365807}
   m_Layer: 0
   m_Name: OtherPlayer
   m_TagString: Untagged
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd9077fb4cc11640b9c8379720f6f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!143 &5150831065719543808
-CharacterController:
+--- !u!136 &8236727163749365807
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -62,16 +62,14 @@ CharacterController:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
+  serializedVersion: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.84, z: 0}
+  m_Height: 1.7958379
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.88327503, z: 0}
 --- !u!1 &228299197374258011
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,8 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d12ff572086cd44ae13bac1ac4d25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 5169202557725749305}
-  syncOffset: 30
+  InterpolationBackTime: 0
+  syncOffset: 1
 --- !u!1 &2684347854501084724
 GameObject:
   m_ObjectHideFlags: 0

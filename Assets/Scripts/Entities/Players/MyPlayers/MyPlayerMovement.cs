@@ -1,6 +1,8 @@
 ﻿using Scripts.Core;
 using Scripts.Network;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
+using UnityEngine.UIElements;
 
 namespace Scripts.Entities.Players.MyPlayers
 {
@@ -15,21 +17,26 @@ namespace Scripts.Entities.Players.MyPlayers
 
         protected override void CalculateMovement()
         {
-            _velocity = _direction * 3 * Time.deltaTime;
+            _velocity = _direction * 3 * Time.fixedDeltaTime;
+        }
 
+        protected override void CalculateRotation()
+        {
             if (IsAiming)
             {
                 Vector3 dir = (_playerInput.GetWorldPosition() - transform.position).normalized;
-                model.rotation = Quaternion.Euler(dir);
+                model.rotation = Quaternion.LookRotation(dir);
+                float forwardDot = Vector3.Dot(model.forward, _direction); // 앞/뒤
+                float rightDot = Vector3.Dot(model.right, _direction);     // 좌/우
+                _animator.SetParam(_xHash, rightDot);
+                _animator.SetParam(_zHash, forwardDot);
             }
             else
                 model.rotation = _direction == Vector3.zero ? model.rotation
-                    : Quaternion.Euler(_direction.x, 0, _direction.z);
+                    : Quaternion.LookRotation(_velocity);
         }
-
-        protected override void FixedUpdate()
+        private void Update()
         {
-            base.FixedUpdate();
             SendMyInfo();
         }
         private void SendMyInfo()
@@ -38,7 +45,7 @@ namespace Scripts.Entities.Players.MyPlayers
             {
                 playerInfo = new PlayerInfoPacket()
                 {
-                    direction = _direction.ToPacket(),
+                    rotation = model.rotation.ToPacket(),
                     position = _player.transform.position.ToPacket(),
                     index = _player.Index,
                     isAiming = IsAiming,

@@ -9,7 +9,7 @@ namespace Scripts.Core.Managers
     {
         private static PlayerManager _instance;
         public static PlayerManager Instance => _instance;
-        public int MyIndex { get; private set; }
+        public int MyIndex { get; private set; } = 0;
 
         [SerializeField] private GameObject myPlayer;
         [SerializeField] private GameObject otherPlayer;
@@ -23,23 +23,33 @@ namespace Scripts.Core.Managers
                 Destroy(gameObject);
             _players = new Dictionary<int, Player>();
         }
-        public void InitPlayer(S_EnterRoomFirst packet)
+        public void FirstInitPlayer(S_EnterRoomFirst packet)
         {
+            Debug.Log(packet.myIndex);
             MyIndex = packet.myIndex;
             foreach (var info in packet.playerInfos)
             {
-                Player player;
                 if (info.index == MyIndex)
-                {
-                    player = Instantiate(myPlayer).GetComponent<Player>();
-                    cinemachine.Target.TrackingTarget = player.transform;
-                }
+                    InitMyPlayer(info);
                 else
-                    player = Instantiate(otherPlayer).GetComponent<Player>();
-                player.Init(info, info.index == MyIndex);
-                player.GetComponentInChildren<PlayerMovement>().SetPosition(info.position.ToVector3());
-                _players.Add(info.index, player);
+                    InitOtherPlayer(info);
             }
+        }
+        public void InitOtherPlayer(PlayerInfoPacket packet)
+        {
+            if (MyIndex==0||MyIndex == packet.index)
+                return;
+            Player player = Instantiate(otherPlayer).GetComponent<Player>();
+            player.Init(packet, false);
+            _players.Add(packet.index, player);
+        }
+        public void InitMyPlayer(PlayerInfoPacket packet)
+        {
+            var player = Instantiate(myPlayer).GetComponent<Player>();
+            cinemachine.Target.TrackingTarget = player.transform;
+            player.Init(packet, true);
+            _players.Add(packet.index, player);
+            player.GetComponentInChildren<PlayerMovement>().SetPosition(packet.position.ToVector3());
         }
         public Player GetPlayerById(int index)
             => _players.GetValueOrDefault(index);

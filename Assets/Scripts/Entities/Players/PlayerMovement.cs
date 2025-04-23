@@ -59,9 +59,11 @@ namespace Scripts.Entities.Players
         protected virtual void FixedUpdate()
         {
             CalculateMovement();
+            CalculateRotation();
             ApplyGravity();
             Move();
         }
+        protected abstract void CalculateRotation();
         protected abstract void CalculateMovement();
         private void ApplyGravity()
         {
