@@ -25,7 +25,6 @@ namespace Scripts.Core.Managers
         }
         public void FirstInitPlayer(S_EnterRoomFirst packet)
         {
-            Debug.Log(packet.myIndex);
             MyIndex = packet.myIndex;
             foreach (var info in packet.playerInfos)
             {
@@ -37,6 +36,7 @@ namespace Scripts.Core.Managers
         }
         public void InitOtherPlayer(PlayerInfoPacket packet)
         {
+            Debug.Log($"InitOtherPlayer: {packet.index}");
             if (MyIndex==0||MyIndex == packet.index)
                 return;
             Player player = Instantiate(otherPlayer).GetComponent<Player>();
@@ -45,6 +45,7 @@ namespace Scripts.Core.Managers
         }
         public void InitMyPlayer(PlayerInfoPacket packet)
         {
+            Debug.Log($"InitMyPlayer: {packet.index}");
             var player = Instantiate(myPlayer).GetComponent<Player>();
             cinemachine.Target.TrackingTarget = player.transform;
             player.Init(packet, true);
