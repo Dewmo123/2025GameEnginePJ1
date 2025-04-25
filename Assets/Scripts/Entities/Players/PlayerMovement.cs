@@ -8,13 +8,14 @@ using UnityEngine;
 
 namespace Scripts.Entities.Players
 {
+    //Movement를 My,Other 두개로 나누려고 추상화 했는데 결국 other에선 위치동기화만 해버린
     public abstract class PlayerMovement : MonoBehaviour, IEntityComponent
     {
         [SerializeField] protected Transform model;
         [SerializeField] private float gravity = -9.81f;
         private CharacterController _controller;
         protected PlayerInputSO _playerInput;
-        protected Player _player;
+        protected MyPlayer _player;
         protected EntityAnimator _animator;
         public bool IsAiming { get; private set; }
         public bool IsGround => _controller.isGrounded;
@@ -30,7 +31,7 @@ namespace Scripts.Entities.Players
         {
             _xHash = Animator.StringToHash("X");
             _zHash = Animator.StringToHash("Z");
-            _player = entity as Player;
+            _player = entity as MyPlayer;
             _animator = entity.GetCompo<PlayerAnimator>();
             _controller = entity.GetComponent<CharacterController>();
         }

@@ -104,6 +104,7 @@ public class RoomInfoPacket : IDataPacket
 public class PlayerInfoPacket : IDataPacket
 {
     public int index;
+    public int animHash;
     public bool isAiming;
     public VectorPacket position;
     public QuaternionPacket rotation;
@@ -113,6 +114,7 @@ public class PlayerInfoPacket : IDataPacket
     {
         ushort count = (ushort)offset;
         count += PacketUtility.ReadIntData(segment, count, out index);
+        count += PacketUtility.ReadIntData(segment, count, out animHash);
         count += PacketUtility.ReadBoolData(segment, count, out isAiming);
         count += PacketUtility.ReadDataPacketData(segment, count, out position);
         count += PacketUtility.ReadDataPacketData(segment, count, out rotation);
@@ -124,6 +126,7 @@ public class PlayerInfoPacket : IDataPacket
     {
         ushort count = (ushort)offset;
         count += PacketUtility.AppendIntData(this.index, segment, count);
+        count += PacketUtility.AppendIntData(this.animHash, segment, count);
         count += PacketUtility.AppendBoolData(this.isAiming, segment, count);
         count += PacketUtility.AppendDataPacketData(this.position, segment, count);
         count += PacketUtility.AppendDataPacketData(this.rotation, segment, count);
@@ -135,6 +138,7 @@ public class PlayerInfoPacket : IDataPacket
 public class SnapshotPacket : IDataPacket
 {
     public int index;
+    public int animHash;
     public long timestamp;
     public VectorPacket position;
     public QuaternionPacket rotation;
@@ -143,6 +147,7 @@ public class SnapshotPacket : IDataPacket
     {
         ushort count = (ushort)offset;
         count += PacketUtility.ReadIntData(segment, count, out index);
+        count += PacketUtility.ReadIntData(segment, count, out animHash);
         count += PacketUtility.ReadLongData(segment, count, out timestamp);
         count += PacketUtility.ReadDataPacketData(segment, count, out position);
         count += PacketUtility.ReadDataPacketData(segment, count, out rotation);
@@ -153,6 +158,7 @@ public class SnapshotPacket : IDataPacket
     {
         ushort count = (ushort)offset;
         count += PacketUtility.AppendIntData(this.index, segment, count);
+        count += PacketUtility.AppendIntData(this.animHash, segment, count);
         count += PacketUtility.AppendLongData(this.timestamp, segment, count);
         count += PacketUtility.AppendDataPacketData(this.position, segment, count);
         count += PacketUtility.AppendDataPacketData(this.rotation, segment, count);

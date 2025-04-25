@@ -1,5 +1,6 @@
 ﻿using Scripts.Core;
 using Scripts.Network;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.UIElements;
@@ -49,9 +50,12 @@ namespace Scripts.Entities.Players.MyPlayers
                     position = _player.transform.position.ToPacket(),
                     index = _player.Index,
                     isAiming = IsAiming,
-                    mouse = _playerInput.GetWorldPosition().ToPacket()
+                    mouse = _playerInput.GetWorldPosition().ToPacket(),
+                    animHash = _player.CurrentAnimHash
                 }
             };
+            Debug.Log($"other: {_player.CurrentAnimHash}");
+
             NetworkManager.Instance.SendPacket(info);
         }
 

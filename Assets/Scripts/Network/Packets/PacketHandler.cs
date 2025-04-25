@@ -19,6 +19,7 @@ class PacketHandler
 
     internal void S_EnterRoomFirstHandler(PacketSession session, IPacket packet)
     {
+        Debug.Log("RoomFIrst");
         var evt = PacketEvents.HandleFirstEnterRoom;
         var firstPacket = packet as S_EnterRoomFirst;
         evt.packet = firstPacket;

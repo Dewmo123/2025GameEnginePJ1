@@ -12,7 +12,7 @@ namespace Blade.FSM
         protected EntityAnimator _entityAnimator;
         protected EntityAnimatorTrigger _animatorTrigger;
         protected bool _isTriggerCall;
-
+        public int AnimHash => _animationHash;
         protected EntityState(NetworkEntity entity, int animationHash)
         {
             _entity = entity;

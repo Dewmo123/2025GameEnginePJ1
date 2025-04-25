@@ -8,7 +8,6 @@ namespace Assets.Scripts.Entities
         [SerializeField] protected Animator animator;
 
         private NetworkEntity _entity;
-        private string _currentAnimation;
         public void Initialize(NetworkEntity entity)
         {
             _entity = entity;

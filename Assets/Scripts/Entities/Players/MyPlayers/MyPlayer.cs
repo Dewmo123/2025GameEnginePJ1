@@ -10,7 +10,7 @@ namespace Scripts.Entities.Players.MyPlayers
         [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
         [SerializeField] private StateDataSO[] states;
         private EntityStateMachine _stateMachine;
-
+        public int CurrentAnimHash => _stateMachine.CurrentState.AnimHash;
         public override void Init(PlayerInfoPacket packet, bool isOwner)
         {
             base.Init(packet, isOwner);
