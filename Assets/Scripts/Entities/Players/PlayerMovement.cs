@@ -19,13 +19,17 @@ namespace Scripts.Entities.Players
         protected EntityAnimator _animator;
         public bool IsAiming { get; private set; }
         public bool IsGround => _controller.isGrounded;
+
         protected Vector3 _direction;
         protected Vector3 _velocity;
         protected Vector3 _serverPosition;
+
         protected int _xHash;
         protected int _zHash;
+
         private float _verticalVelocity;
 
+        public Vector3 ModelRot => model.transform.rotation.eulerAngles;
 
         public virtual void Initialize(NetworkEntity entity)
         {

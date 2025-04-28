@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d12ff572086cd44ae13bac1ac4d25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InterpolationBackTime: 50
+  InterpolationBackTime: 25
 --- !u!1 &2684347854501084724
 GameObject:
   m_ObjectHideFlags: 0

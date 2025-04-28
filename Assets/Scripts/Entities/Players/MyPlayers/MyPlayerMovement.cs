@@ -12,7 +12,7 @@ namespace Scripts.Entities.Players.MyPlayers
         public override void Initialize(NetworkEntity entity)
         {
             base.Initialize(entity);
-            _playerInput = (_player as MyPlayer).PlayerInput;
+            _playerInput = _player.PlayerInput;
             _playerInput.OnAimEvent += HandleAim;
         }
 
@@ -33,12 +33,17 @@ namespace Scripts.Entities.Players.MyPlayers
                 _animator.SetParam(_zHash, forwardDot);
             }
             else
-                model.rotation = _direction == Vector3.zero ? model.rotation
+            {
+                Quaternion rotation = _direction == Vector3.zero ? model.rotation
                     : Quaternion.LookRotation(_velocity);
+                float rotateSpeed = 20f;
+                model.rotation = Quaternion.Lerp(model.rotation, rotation, Time.fixedDeltaTime * rotateSpeed);
+            }
         }
         private void Update()
         {
-            SendMyInfo();
+            if (!_player.isTest)
+                SendMyInfo();
         }
         private void SendMyInfo()
         {
@@ -54,7 +59,6 @@ namespace Scripts.Entities.Players.MyPlayers
                     animHash = _player.CurrentAnimHash
                 }
             };
-            Debug.Log($"other: {_player.CurrentAnimHash}");
 
             NetworkManager.Instance.SendPacket(info);
         }

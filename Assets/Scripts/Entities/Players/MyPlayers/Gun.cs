@@ -1,4 +1,5 @@
 ﻿using Scripts.Core.GameSystem;
+using System;
 using UnityEngine;
 
 namespace Scripts.Entities.Players.MyPlayers
@@ -10,9 +11,31 @@ namespace Scripts.Entities.Players.MyPlayers
         [SerializeField] private float height = 3;
         [SerializeField] private LayerMask _wallLayer;
         private Vector3 _direction;
+        private bool _isAiming;
+        private void Awake()
+        {
+            playerInput.OnAimEvent += HandleAim;
+            line.transform.parent = null;
+            line.transform.position = Vector3.zero;
+        }
+        private void OnDestroy()
+        {
+            playerInput.OnAimEvent -= HandleAim;
+        }
+        private void HandleAim(bool obj)
+        {
+            _isAiming = obj;
+        }
+
         private void LateUpdate()
         {
-            LookCameraPos();
+            if (_isAiming)
+                LookCameraPos();
+        }
+        private void Update()
+        {
+            if (_isAiming)
+                SetLine();
         }
 
         private void LookCameraPos()
@@ -29,11 +52,6 @@ namespace Scripts.Entities.Players.MyPlayers
             if (dir != Vector3.zero)
                 transform.rotation = Quaternion.LookRotation(dir);
             _direction = dir;
-        }
-
-        private void Update()
-        {
-            SetLine();
         }
 
         Vector3[] positions = new Vector3[2];

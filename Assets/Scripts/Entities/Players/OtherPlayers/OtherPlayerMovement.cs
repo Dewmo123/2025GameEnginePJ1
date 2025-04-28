@@ -39,7 +39,10 @@ namespace Scripts.Entities.Players.OtherPlayers
         }
         public void AddSnapshot(SnapshotPacket pak)
         {
-            _serverToClientOffset = (long)(Time.time * 1000) - (pak.timestamp); // 초 단위
+            long estimatedOffset = (long)(Time.time * 1000) - pak.timestamp;
+
+            _serverToClientOffset = estimatedOffset; // 초 단위
+
             _snapshots.Add(pak);
             // 오래된 스냅샷 제거
             if (_snapshots.Count > 10)
@@ -54,14 +57,14 @@ namespace Scripts.Entities.Players.OtherPlayers
             // 보간 가능한 두 개의 snapshot 찾기
             for (int i = 0; i < _snapshots.Count - 1; i++)
             {
-                if (_snapshots[i].timestamp <= interpTime && _snapshots[i + 1].timestamp >= interpTime)
+                if (_snapshots[i].timestamp < interpTime && _snapshots[i + 1].timestamp > interpTime)
                 {
                     SnapshotPacket older = _snapshots[i];
                     SnapshotPacket newer = _snapshots[i + 1];
 
-                    float t = Mathf.InverseLerp(older.timestamp, newer.timestamp, interpTime);
-                    //Debug.Log($"old: {older.timestamp}, new: {newer.timestamp}, client:{interpTime}");
-                    //Debug.Log(t);
+                    float t = (interpTime - older.timestamp) / (float)(newer.timestamp - older.timestamp);
+                    Debug.Log($"old: {older.timestamp}, new: {newer.timestamp}, client:{interpTime}");
+                    Debug.Log(t);
 
 
                     Vector3 interpPos = Vector3.Lerp(older.position.ToVector3(), newer.position.ToVector3(), t);
@@ -86,7 +89,6 @@ namespace Scripts.Entities.Players.OtherPlayers
             }
             float forwardDot = Vector3.Dot(_player.transform.forward, direction); // 앞/뒤
             float rightDot = Vector3.Dot(_player.transform.right, direction);     // 좌/우
-            Debug.Log($"{forwardDot},{rightDot}");
             _animator.SetParam(_xHash, rightDot);
             _animator.SetParam(_zHash, forwardDot);
         }
