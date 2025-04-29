@@ -9,6 +9,11 @@ namespace Scripts.Entities.Players.States
         {
 
         }
+        public override void Enter()
+        {
+            base.Enter();
+            _movement.SetMoveState(MyPlayers.MyPlayerMovement.WalkMode.Aim);
+        }
         public override void Update()
         {
             base.Update();

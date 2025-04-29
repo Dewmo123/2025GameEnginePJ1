@@ -11,6 +11,7 @@ namespace Scripts.Entities.Players.States
         {
             base.Enter();
             _movement.StopImmediately();
+            _movement.SetMoveState(MyPlayers.MyPlayerMovement.WalkMode.Idle);
         }
         public override void Update()
         {

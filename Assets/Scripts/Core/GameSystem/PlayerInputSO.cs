@@ -14,6 +14,7 @@ namespace Scripts.Core.GameSystem
         [SerializeField] private LayerMask whatIsGround;
 
         public event Action<bool> OnAimEvent;
+        public event Action<bool> OnSprintEvent;
         private Controls _controls;
         public Vector2 MovementKey { get; private set; }
 
@@ -80,6 +81,10 @@ namespace Scripts.Core.GameSystem
         public Ray GetCameraRay()=> Camera.main.ScreenPointToRay(_screenPosition);
         public void OnSprint(InputAction.CallbackContext context)
         {
+            if (context.performed)
+                OnSprintEvent?.Invoke(true);
+            else if (context.canceled)
+                OnSprintEvent?.Invoke(false);
         }
     }
 }

@@ -2,15 +2,15 @@
 
 namespace Scripts.Entities.Players.States
 {
-    public class PlayerWalkState : PlayerState
+    public class PlayerSprintState : PlayerState
     {
-        public PlayerWalkState(NetworkEntity entity, int animationHash) : base(entity, animationHash)
+        public PlayerSprintState(NetworkEntity entity, int animationHash) : base(entity, animationHash)
         {
         }
         public override void Enter()
         {
             base.Enter();
-            _movement.SetMoveState(MyPlayers.MyPlayerMovement.WalkMode.Walk);
+            _movement.SetMoveState(MyPlayers.MyPlayerMovement.WalkMode.Sprint);
         }
         public override void Update()
         {
@@ -19,8 +19,8 @@ namespace Scripts.Entities.Players.States
             _movement.SetMovement(moveVec);
             if (moveVec.magnitude == 0)
                 _player.ChangeState("Idle");
-            if (_movement.IsSprint)
-                _player.ChangeState("Sprint");
+            if (!_movement.IsSprint)
+                _player.ChangeState("Walk");
         }
     }
 }

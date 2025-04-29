@@ -17,7 +17,7 @@ namespace Scripts.Entities.Players
         protected PlayerInputSO _playerInput;
         protected MyPlayer _player;
         protected EntityAnimator _animator;
-        public bool IsAiming { get; private set; }
+        public bool IsAiming { get; protected set; }
         public bool IsGround => _controller.isGrounded;
 
         protected Vector3 _direction;
@@ -39,11 +39,7 @@ namespace Scripts.Entities.Players
             _animator = entity.GetCompo<PlayerAnimator>();
             _controller = entity.GetComponent<CharacterController>();
         }
-        private void OnDestroy()
-        {
-            if (_player.IsOwner)
-                _playerInput.OnAimEvent -= HandleAim;
-        }
+
         public void SetPosition(Vector3 position)
         {
             _controller.enabled = false;
@@ -51,8 +47,6 @@ namespace Scripts.Entities.Players
             _controller.enabled = true;
         }
         #region SetParameters
-        public void HandleAim(bool obj)
-            => IsAiming = obj;
         public void SetMovement(Vector2 dir)
             => _direction = new Vector3(dir.x, 0, dir.y);
         public void StopImmediately()

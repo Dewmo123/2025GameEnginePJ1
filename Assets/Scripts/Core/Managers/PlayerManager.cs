@@ -26,6 +26,7 @@ namespace Scripts.Core.Managers
         public void FirstInitPlayer(S_EnterRoomFirst packet)
         {
             MyIndex = packet.myIndex;
+            Debug.Log(MyIndex);
             foreach (var info in packet.playerInfos)
             {
                 if (info.index == MyIndex)
