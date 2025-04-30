@@ -1,0 +1,467 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\myplayers\\myplayermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\myplayers\\myplayermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\states\\playeridlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\states\\playeridlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|c:\\users\\lenovo\\repositories\\2025gameenginepj1\\assets\\scripts\\entities\\players\\states\\playeraimidlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\states\\playeraimidlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\states\\playerwalkstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\states\\playerwalkstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|c:\\users\\lenovo\\repositories\\2025gameenginepj1\\assets\\scripts\\entities\\players\\states\\playersprintstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\states\\playersprintstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\states\\playeraimwalkstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\states\\playeraimwalkstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\otherplayers\\otherplayermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\otherplayers\\otherplayermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\myplayers\\myplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\myplayers\\myplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\myplayers\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\myplayers\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\states\\playeraimstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\states\\playeraimstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|c:\\users\\lenovo\\repositories\\2025gameenginepj1\\assets\\scripts\\core\\managers\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\managers\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\network\\packets\\packethandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\packets\\packethandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\ui\\room\\roomlistui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\room\\roomlistui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\playeranimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\playeranimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\core\\gamesystem\\playerinputso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\gamesystem\\playerinputso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\network\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\players\\otherplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\players\\otherplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\views\\camerapivot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\views\\camerapivot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\network\\serversession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\serversession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\core\\packetextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\packetextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\network\\packets\\clientpacketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\packets\\clientpacketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\entityanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entityanimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\network\\packets\\packetqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\packets\\packetqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\entities\\networkentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\networkentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\core\\network\\packetutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\network\\packetutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\assets\\scripts\\network\\packets\\genpackets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E41B128B-02CE-4576-5DA0-188265CC35B5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\network\\packets\\genpackets.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 26,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerAimIdleState.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerAimIdleState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\States\\PlayerAimIdleState.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerAimIdleState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\States\\PlayerAimIdleState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T12:45:51.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Core\\Managers\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Managers\\PlayerManager.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Core\\Managers\\PlayerManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\Managers\\PlayerManager.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwCcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T12:38:31.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerSprintState.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerSprintState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\States\\PlayerSprintState.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerSprintState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\States\\PlayerSprintState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T12:29:51.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\Player.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\Player.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T12:24:57.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlayerAimWalkState.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerAimWalkState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\States\\PlayerAimWalkState.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerAimWalkState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\States\\PlayerAimWalkState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T14:46:30.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerIdleState.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerIdleState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\States\\PlayerIdleState.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerIdleState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\States\\PlayerIdleState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T14:46:16.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PlayerAimState.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerAimState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\States\\PlayerAimState.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerAimState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\States\\PlayerAimState.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAowA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T14:43:48.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerWalkState.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerWalkState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\States\\PlayerWalkState.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\States\\PlayerWalkState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\States\\PlayerWalkState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T14:41:50.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PlayerInputSO.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Core\\GameSystem\\PlayerInputSO.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\GameSystem\\PlayerInputSO.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Core\\GameSystem\\PlayerInputSO.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\GameSystem\\PlayerInputSO.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAgwFUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T14:02:03.059Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Gun.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\MyPlayers\\Gun.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\MyPlayers\\Gun.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\MyPlayers\\Gun.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\MyPlayers\\Gun.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T11:29:23.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CameraPivot.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Views\\CameraPivot.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Views\\CameraPivot.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Views\\CameraPivot.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Views\\CameraPivot.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAcwBsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T11:20:02.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "EntityAnimator.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\EntityAnimator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\EntityAnimator.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\EntityAnimator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\EntityAnimator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T15:51:53.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PlayerAnimator.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\PlayerAnimator.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\PlayerAnimator.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\PlayerAnimator.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\PlayerAnimator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T15:13:44.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PacketQueue.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\Packets\\PacketQueue.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\Packets\\PacketQueue.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\Packets\\PacketQueue.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Network\\Packets\\PacketQueue.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAArwBsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T15:26:15.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ClientPacketManager.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\Packets\\ClientPacketManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\Packets\\ClientPacketManager.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\Packets\\ClientPacketManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Network\\Packets\\ClientPacketManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T15:22:36.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ServerSession.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\ServerSession.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\ServerSession.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\ServerSession.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Network\\ServerSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T15:22:18.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "NetworkManager.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\NetworkManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\NetworkManager.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\NetworkManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Network\\NetworkManager.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAnwCEAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T14:34:52.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RoomListUI.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\UI\\Room\\RoomListUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Room\\RoomListUI.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\UI\\Room\\RoomListUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Room\\RoomListUI.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAgwCwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T13:17:45.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "OtherPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\OtherPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\OtherPlayer.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\OtherPlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\OtherPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T12:38:49.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PacketExtension.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Core\\PacketExtension.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\PacketExtension.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Core\\PacketExtension.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\PacketExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T12:37:23.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "PacketUtility.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Core\\Network\\PacketUtility.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Network\\PacketUtility.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Core\\Network\\PacketUtility.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\Network\\PacketUtility.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T12:25:32.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PacketHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\Packets\\PacketHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\Packets\\PacketHandler.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\Packets\\PacketHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Network\\Packets\\PacketHandler.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAwwEQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T11:23:01.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OtherPlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\OtherPlayers\\OtherPlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\OtherPlayers\\OtherPlayerMovement.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\OtherPlayers\\OtherPlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\OtherPlayers\\OtherPlayerMovement.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowEEAAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T05:30:42.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "NetworkEntity.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\NetworkEntity.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\NetworkEntity.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\NetworkEntity.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\NetworkEntity.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T10:10:30.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "GenPackets.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\Packets\\GenPackets.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Network\\Packets\\GenPackets.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Network\\Packets\\GenPackets.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Network\\Packets\\GenPackets.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANEBAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T05:13:07.29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MyPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\MyPlayers\\MyPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\MyPlayers\\MyPlayer.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\MyPlayers\\MyPlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\MyPlayers\\MyPlayer.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T05:01:54.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MyPlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\MyPlayers\\MyPlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Players\\MyPlayers\\MyPlayerMovement.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Repositories\\2025GameEnginePJ1\\Assets\\Scripts\\Entities\\Players\\MyPlayers\\MyPlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Players\\MyPlayers\\MyPlayerMovement.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowDIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T05:01:51.221Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
