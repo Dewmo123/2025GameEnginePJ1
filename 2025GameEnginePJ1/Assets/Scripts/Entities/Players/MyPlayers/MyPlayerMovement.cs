@@ -58,11 +58,12 @@ namespace Scripts.Entities.Players.MyPlayers
 
         protected override void CalculateRotation()
         {
+            Quaternion rotation;
             if (IsAiming)
             {
                 Vector3 dir = (_playerInput.GetWorldPosition() - transform.position).normalized;
                 dir.y = 0;
-                model.rotation = Quaternion.LookRotation(dir);
+                rotation = Quaternion.LookRotation(dir);
                 float forwardDot = Vector3.Dot(model.forward, _direction); // 앞/뒤
                 float rightDot = Vector3.Dot(model.right, _direction);     // 좌/우
                 _animator.SetParam(_xHash, rightDot);
@@ -70,11 +71,11 @@ namespace Scripts.Entities.Players.MyPlayers
             }
             else
             {
-                Quaternion rotation = _direction == Vector3.zero ? model.rotation
-                    : Quaternion.LookRotation(_velocity);
-                float rotateSpeed = 20f;
-                model.rotation = Quaternion.Lerp(model.rotation, rotation, Time.fixedDeltaTime * rotateSpeed);
+                rotation = _direction == Vector3.zero ? model.rotation
+                   : Quaternion.LookRotation(_velocity);
             }
+            float rotateSpeed = 20f;
+            model.rotation = Quaternion.Lerp(model.rotation, rotation, Time.fixedDeltaTime * rotateSpeed);
         }
         private void Update()
         {

@@ -17,6 +17,7 @@ namespace Scripts.Entities.Players.MyPlayers
             playerInput.OnAimEvent += HandleAim;
             line.transform.parent = null;
             line.transform.position = Vector3.zero;
+            _direction = Vector3.one;
         }
         private void OnDestroy()
         {
@@ -27,7 +28,7 @@ namespace Scripts.Entities.Players.MyPlayers
             _isAiming = obj;
         }
 
-        private void LateUpdate()
+        private void FixedUpdate()
         {
             if (_isAiming)
                 LookCameraPos();
@@ -48,10 +49,13 @@ namespace Scripts.Entities.Players.MyPlayers
 
             Vector3 dir = hitPoint - transform.position;
             dir.y = 0f;
-
+            Quaternion rotation = Quaternion.LookRotation(dir);
             if (dir != Vector3.zero)
-                transform.rotation = Quaternion.LookRotation(dir);
-            _direction = dir;
+            {
+                Quaternion slerp = Quaternion.Slerp(transform.rotation, rotation, Time.fixedDeltaTime * 20);
+                transform.rotation = slerp;
+                _direction = Quaternion.Slerp(Quaternion.LookRotation(_direction), rotation, Time.fixedDeltaTime * 20) * Vector3.forward;
+            }
         }
 
         Vector3[] positions = new Vector3[2];

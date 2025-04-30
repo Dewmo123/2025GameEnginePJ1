@@ -28,7 +28,6 @@ namespace Scripts.Network.Packets
         {
             lock (_lock)
             {
-                Queue<ArraySegment<byte>> q;
                 while (_packets.Count > 0)
                 {
                     var packet = _packets.Dequeue();
