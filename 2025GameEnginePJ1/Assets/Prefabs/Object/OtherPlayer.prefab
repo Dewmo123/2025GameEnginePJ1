@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d12ff572086cd44ae13bac1ac4d25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InterpolationBackTime: 25
+  InterpolationBackTime: 30
 --- !u!1 &2684347854501084724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 245000013701868604}
+  leftHandTarget: {fileID: 0}
 --- !u!1 &5995570280771891761
 GameObject:
   m_ObjectHideFlags: 0

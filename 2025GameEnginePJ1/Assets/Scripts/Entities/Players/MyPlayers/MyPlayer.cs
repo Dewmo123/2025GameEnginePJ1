@@ -11,13 +11,12 @@ namespace Scripts.Entities.Players.MyPlayers
         [SerializeField] private StateDataSO[] states;
         private EntityStateMachine _stateMachine;
         public int CurrentAnimHash => _stateMachine.CurrentState.AnimHash;
-        public bool isTest;
         private void Awake()
         {
             if (isTest)
-                Init(new PlayerInfoPacket() { position = new VectorPacket(), index = 1, rotation = new QuaternionPacket() }, true);
+                Init(new LocationInfoPacket() { position = new VectorPacket(), index = 1, rotation = new QuaternionPacket() }, true);
         }
-        public override void Init(PlayerInfoPacket packet, bool isOwner)
+        public override void Init(LocationInfoPacket packet, bool isOwner)
         {
             base.Init(packet, isOwner);
             _stateMachine = new EntityStateMachine(this, states);

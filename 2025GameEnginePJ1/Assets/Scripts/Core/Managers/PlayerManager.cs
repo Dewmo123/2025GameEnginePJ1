@@ -35,7 +35,7 @@ namespace Scripts.Core.Managers
                     InitOtherPlayer(info);
             }
         }
-        public void InitOtherPlayer(PlayerInfoPacket packet)
+        public void InitOtherPlayer(LocationInfoPacket packet)
         {
             Debug.Log($"InitOtherPlayer: {packet.index}");
             if (MyIndex==0||MyIndex == packet.index)
@@ -44,7 +44,7 @@ namespace Scripts.Core.Managers
             player.Init(packet, false);
             _players.Add(packet.index, player);
         }
-        public void InitMyPlayer(PlayerInfoPacket packet)
+        public void InitMyPlayer(LocationInfoPacket packet)
         {
             Debug.Log($"InitMyPlayer: {packet.index}");
             var player = Instantiate(myPlayer).GetComponent<Player>();
@@ -52,6 +52,11 @@ namespace Scripts.Core.Managers
             player.Init(packet, true);
             _players.Add(packet.index, player);
             player.GetComponentInChildren<PlayerMovement>().SetPosition(packet.position.ToVector3());
+        }
+        public void ExitOtherPlayer(int sessionId)
+        {
+            Destroy(_players[sessionId].gameObject);
+            _players.Remove(sessionId);
         }
         public Player GetPlayerById(int index)
             => _players.GetValueOrDefault(index);

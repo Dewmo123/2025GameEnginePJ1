@@ -1,4 +1,5 @@
 ﻿using Scripts.Core;
+using Scripts.Core.GameSystem;
 using Scripts.Network;
 using System;
 using Unity.VisualScripting.Antlr3.Runtime;
@@ -10,6 +11,24 @@ namespace Scripts.Entities.Players.MyPlayers
 {
     public class MyPlayerMovement : PlayerMovement
     {
+        [SerializeField] private float gravity = -9.81f;
+
+        protected PlayerInputSO _playerInput;
+        private CharacterController _controller;
+        public bool IsGround => _controller.isGrounded;
+
+        private float _verticalVelocity;
+
+        public bool IsSprint { get; protected set; }
+
+        [SerializeField] private float walkSpeed;
+        [SerializeField] private float sprintSpeed;
+        [SerializeField] private float aimSpeed;
+
+        private float _currentSpeed;
+        private MyPlayer _myPlayer;
+        protected Vector3 _direction;
+        protected Vector3 _velocity;
         public enum WalkMode
         {
             Idle,
@@ -17,46 +36,48 @@ namespace Scripts.Entities.Players.MyPlayers
             Sprint,
             Aim
         }
-        public bool IsSprint { get; protected set; }
-        [SerializeField] private float walkSpeed;
-        [SerializeField] private float sprintSpeed;
-        [SerializeField] private float aimSpeed;
-        private float _currentSpeed;
         public override void Initialize(NetworkEntity entity)
         {
             base.Initialize(entity);
-            _playerInput = _player.PlayerInput;
+            _myPlayer = (_player as MyPlayer);
+            _playerInput = _myPlayer.PlayerInput;
             _playerInput.OnAimEvent += HandleAim;
             _playerInput.OnSprintEvent += HandleSprint;
             _currentSpeed = walkSpeed;
+            _controller = entity.GetComponent<CharacterController>();
+
         }
 
-        public void SetMoveState(WalkMode state)
-        {
-            _currentSpeed = state switch
-            {
-                WalkMode.Idle => 0,
-                WalkMode.Walk => walkSpeed,
-                WalkMode.Aim => aimSpeed,
-                WalkMode.Sprint => sprintSpeed,
-                _ => 0
-            };
-        }
         private void OnDestroy()
         {
             _playerInput.OnSprintEvent -= HandleSprint;
             _playerInput.OnAimEvent -= HandleAim;
         }
-        private void HandleSprint(bool obj)
-            => IsSprint = obj;
-        public void HandleAim(bool obj)
-            => IsAiming = obj;
-        protected override void CalculateMovement()
+        #region Movement
+        protected void FixedUpdate()
+        {
+            CalculateMovement();
+            CalculateRotation();
+            ApplyGravity();
+            Move();
+        }
+        private void ApplyGravity()
+        {
+            if (IsGround && _verticalVelocity < 0)
+                _verticalVelocity = -0.03f;
+            else
+                _verticalVelocity += gravity * Time.fixedDeltaTime;
+            _velocity.y = _verticalVelocity;
+        }
+        private void Move()
+        {
+            _controller.Move(_velocity);
+        }
+        protected void CalculateMovement()
         {
             _velocity = _direction * _currentSpeed * Time.fixedDeltaTime;
         }
-
-        protected override void CalculateRotation()
+        protected void CalculateRotation()
         {
             Quaternion rotation;
             if (IsAiming)
@@ -77,6 +98,7 @@ namespace Scripts.Entities.Players.MyPlayers
             float rotateSpeed = 20f;
             model.rotation = Quaternion.Lerp(model.rotation, rotation, Time.fixedDeltaTime * rotateSpeed);
         }
+        #endregion
         private void Update()
         {
             if (!_player.isTest)
@@ -84,21 +106,47 @@ namespace Scripts.Entities.Players.MyPlayers
         }
         private void SendMyInfo()
         {
-            C_UpdateInfo info = new C_UpdateInfo()
+            C_UpdateLocation info = new C_UpdateLocation()
             {
-                playerInfo = new PlayerInfoPacket()
+                location = new LocationInfoPacket()
                 {
                     rotation = model.rotation.ToPacket(),
                     position = _player.transform.position.ToPacket(),
                     index = _player.Index,
                     isAiming = IsAiming,
                     mouse = _playerInput.GetWorldPosition().ToPacket(),
-                    animHash = _player.CurrentAnimHash
+                    animHash = _myPlayer.CurrentAnimHash
                 }
             };
 
             NetworkManager.Instance.SendPacket(info);
         }
 
+        #region SetParameters
+        public void SetMoveState(WalkMode state)
+         => _currentSpeed = state switch
+         {
+             WalkMode.Idle => 0,
+             WalkMode.Walk => walkSpeed,
+             WalkMode.Aim => aimSpeed,
+             WalkMode.Sprint => sprintSpeed,
+             _ => 0
+         };
+        public override void SetPosition(Vector3 position)
+        {
+            _controller.enabled = false;
+            Debug.Log($"{position.x},{position.y},{position.z}");
+            _player.transform.position = position;
+            _controller.enabled = true;
+        }
+        public void SetMovement(Vector2 dir)
+            => _direction = new Vector3(dir.x, 0, dir.y);
+        public void StopImmediately()
+            => _direction = Vector3.zero;
+        private void HandleSprint(bool obj)
+            => IsSprint = obj;
+        public void HandleAim(bool obj)
+            => IsAiming = obj;
+        #endregion
     }
 }

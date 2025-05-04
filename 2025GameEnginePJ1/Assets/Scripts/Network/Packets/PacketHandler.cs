@@ -3,6 +3,7 @@ using Scripts.Core;
 using Scripts.Core.EventSystem;
 using Scripts.Core.Managers;
 using Scripts.Entities.Players;
+using Scripts.Entities.Players.MyPlayers;
 using Scripts.Entities.Players.OtherPlayers;
 using Scripts.UI.Room;
 using ServerCore;
@@ -35,6 +36,8 @@ class PacketHandler
 
     internal void S_RoomExitHandler(PacketSession session, IPacket packet)
     {
+        var roomExit = packet as S_RoomExit;
+        PlayerManager.Instance.ExitOtherPlayer(roomExit.Index);
     }
 
     internal void S_RoomListHandler(PacketSession session, IPacket packet)
@@ -58,11 +61,15 @@ class PacketHandler
             if (player == default)
                 continue;
             if (player.Index == PlayerManager.Instance.MyIndex)
+            {
+                var myMovement = player.GetCompo<MyPlayerMovement>();
+                myMovement.SetPosition(item.position.ToVector3());
                 continue;
+            }
             var movement = player.GetCompo<OtherPlayerMovement>();
             movement.Synchronize(item);
         }
-        foreach(var item in p.snapshots)
+        foreach (var item in p.snapshots)
         {
             var player = PlayerManager.Instance.GetPlayerById(item.index);
             if (player == default)

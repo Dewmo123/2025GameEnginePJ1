@@ -9,38 +9,29 @@ using UnityEngine.InputSystem.HID;
 
 namespace Scripts.Entities.Players.OtherPlayers
 {
-    public class OtherPlayerMovement : MonoBehaviour, IEntityComponent
+    public class OtherPlayerMovement : PlayerMovement
     {
         public long InterpolationBackTime = 5; // 200ms 뒤쳐지게 보간
 
         public List<SnapshotPacket> _snapshots = new List<SnapshotPacket>();
         private Vector3 _mousePos;
+        private Vector3 _serverPos;
         private Vector3 _prevInterpPos;
-        private Player _player;
-        private EntityAnimator _animator;
-        public bool IsAiming { get; private set; }
 
         private long _serverToClientOffset;
 
         private int _currentAnimHash;
-        private int _xHash;
-        private int _zHash;
-        public void Initialize(NetworkEntity entity)
-        {
-            _xHash = Animator.StringToHash("X");
-            _zHash = Animator.StringToHash("Z");
-            _animator = entity.GetCompo<PlayerAnimator>();
-            _player = entity as Player;
-        }
-        public void Synchronize(PlayerInfoPacket packet)
+
+        public void Synchronize(LocationInfoPacket packet)
         {
             IsAiming = packet.isAiming;
             _mousePos = packet.mouse.ToVector3();
+            SetPosition(packet.position.ToVector3());
         }
         public void AddSnapshot(SnapshotPacket pak)
         {
-            long estimatedOffset = (long)(Time.time * 1000) - pak.timestamp;
-
+            long estimatedOffset = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - pak.timestamp;
+            //Debug.Log(DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - pak.timestamp);
             _serverToClientOffset = estimatedOffset; // 초 단위
 
             _snapshots.Add(pak);
@@ -50,7 +41,7 @@ namespace Scripts.Entities.Players.OtherPlayers
         }
         private void Update()
         {
-            long interpTime = (long)(Time.time * 1000) - InterpolationBackTime - _serverToClientOffset;
+            long interpTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - InterpolationBackTime - _serverToClientOffset;
             // 필요한 스냅샷이 2개 이상 있어야 보간 가능
             if (_snapshots.Count < 2)
                 return;
@@ -63,8 +54,8 @@ namespace Scripts.Entities.Players.OtherPlayers
                     SnapshotPacket newer = _snapshots[i + 1];
 
                     float t = (interpTime - older.timestamp) / (float)(newer.timestamp - older.timestamp);
-                    Debug.Log($"old: {older.timestamp}, new: {newer.timestamp}, client:{interpTime}");
-                    Debug.Log(t);
+                    //Debug.Log($"old: {older.timestamp}, new: {newer.timestamp}, client:{interpTime}");
+                    //Debug.Log(t);
 
 
                     Vector3 interpPos = Vector3.Lerp(older.position.ToVector3(), newer.position.ToVector3(), t);
@@ -91,6 +82,16 @@ namespace Scripts.Entities.Players.OtherPlayers
             float rightDot = Vector3.Dot(_player.transform.right, direction);     // 좌/우
             _animator.SetParam(_xHash, rightDot);
             _animator.SetParam(_zHash, forwardDot);
+        }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(_serverPos, 0.3f);
+        }
+
+        public override void SetPosition(Vector3 position)
+        {
+            _player.transform.position = position;
         }
     }
 }
