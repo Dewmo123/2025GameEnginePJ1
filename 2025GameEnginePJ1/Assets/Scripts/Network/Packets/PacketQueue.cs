@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using DummyClient;
 using Core.EventSystem;
+using UnityEngine;
 
 namespace Scripts.Network.Packets
 {

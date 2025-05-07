@@ -47,6 +47,17 @@ class PacketHandler
         _packetChannel.InvokeEvent(evt);
     }
 
+    internal void S_TeamInfosHandler(PacketSession session, IPacket packet)
+    {
+        var infos = packet as S_TeamInfos;
+        foreach(var item in infos.teamInfos)
+        {
+            var player = PlayerManager.Instance.GetPlayerById(item.index);
+            player.SetTeam(item.team);
+            Debug.Log($"index:{item.index}, Team:{item.team}");
+        }
+    }
+
     internal void S_TestTextHandler(PacketSession session, IPacket packet)
     {
         var test = packet as S_TestText;
