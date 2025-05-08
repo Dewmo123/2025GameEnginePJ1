@@ -59,8 +59,7 @@ namespace Scripts.Entities.Players.OtherPlayers
 
 
                     Vector3 interpPos = Vector3.Lerp(older.position.ToVector3(), newer.position.ToVector3(), t);
-                    if (_prevInterpPos != interpPos)
-                        SetAnimation((interpPos - _prevInterpPos).normalized, newer.animHash);
+                    SetAnimation(interpPos, newer.animHash);
                     _prevInterpPos = interpPos;
                     Quaternion interpRot = Quaternion.Slerp(older.rotation.ToQuaternion(), newer.rotation.ToQuaternion(), t);
 
@@ -70,18 +69,22 @@ namespace Scripts.Entities.Players.OtherPlayers
                 }
             }
         }
-        private void SetAnimation(Vector3 direction, int animHash)
+        private void SetAnimation(Vector3 interpPos, int animHash)
         {
+            Vector3 direction = (interpPos - _prevInterpPos).normalized;
             if (_currentAnimHash != animHash)
             {
                 _animator.SetParam(_currentAnimHash, false);
                 _currentAnimHash = animHash;
                 _animator.SetParam(_currentAnimHash, true);
             }
-            float forwardDot = Vector3.Dot(_player.transform.forward, direction); // 菊/第
-            float rightDot = Vector3.Dot(_player.transform.right, direction);     // 谅/快
-            _animator.SetParam(_xHash, rightDot);
-            _animator.SetParam(_zHash, forwardDot);
+            if (direction.magnitude > 0f)
+            {
+                float forwardDot = Vector3.Dot(_player.transform.forward, direction); // 菊/第
+                float rightDot = Vector3.Dot(_player.transform.right, direction);     // 谅/快
+                _animator.SetParam(_xHash, rightDot);
+                _animator.SetParam(_zHash, forwardDot);
+            }
         }
         private void OnDrawGizmos()
         {

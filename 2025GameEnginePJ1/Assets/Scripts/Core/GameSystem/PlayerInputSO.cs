@@ -14,6 +14,7 @@ namespace Scripts.Core.GameSystem
         [SerializeField] private LayerMask whatIsGround;
 
         public event Action<bool> OnAimEvent;
+        public event Action<bool> OnAttackEvent;
         public event Action<bool> OnSprintEvent;
         private Controls _controls;
         public Vector2 MovementKey { get; private set; }
@@ -44,6 +45,10 @@ namespace Scripts.Core.GameSystem
 
         public void OnAttack(InputAction.CallbackContext context)
         {
+            if (context.performed)
+                OnAttackEvent?.Invoke(true);
+            else if (context.canceled)
+                OnAttackEvent?.Invoke(false);
         }
 
         public void OnCrouch(InputAction.CallbackContext context)

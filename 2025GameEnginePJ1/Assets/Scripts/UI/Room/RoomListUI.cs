@@ -42,7 +42,6 @@ namespace Scripts.UI.Room
 
         private void SetRoomId(int roomId)
         {
-            Debug.Log(roomId);
             _currentRoomId = roomId;
         }
         public void ResetAttributes()
