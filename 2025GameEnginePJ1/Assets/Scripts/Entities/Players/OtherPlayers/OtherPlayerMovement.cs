@@ -18,8 +18,6 @@ namespace Scripts.Entities.Players.OtherPlayers
         private Vector3 _serverPos;
         private Vector3 _prevInterpPos;
 
-        private long _serverToClientOffset;
-
         private int _currentAnimHash;
 
         public void Synchronize(LocationInfoPacket packet)
@@ -30,10 +28,6 @@ namespace Scripts.Entities.Players.OtherPlayers
         }
         public void AddSnapshot(SnapshotPacket pak)
         {
-            long estimatedOffset = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - pak.timestamp;
-            //Debug.Log(DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - pak.timestamp);
-            _serverToClientOffset = estimatedOffset; // 초 단위
-
             _snapshots.Add(pak);
             // 오래된 스냅샷 제거
             if (_snapshots.Count > 10)
@@ -41,7 +35,7 @@ namespace Scripts.Entities.Players.OtherPlayers
         }
         private void Update()
         {
-            long interpTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - InterpolationBackTime - _serverToClientOffset;
+            long interpTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - InterpolationBackTime;
             // 필요한 스냅샷이 2개 이상 있어야 보간 가능
             if (_snapshots.Count < 2)
                 return;

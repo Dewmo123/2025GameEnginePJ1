@@ -11,7 +11,7 @@ namespace Scripts.Network.Packets
     public class PacketQueue
     {
         private object _lock = new object();
-        private Queue<ArraySegment<byte>> _packets = new Queue<ArraySegment<byte>>();
+        private Queue<IPacket> _packets = new Queue<IPacket>();
         private PacketManager _packetManager;
         public PacketQueue(EventChannelSO eventChannel)
         {
@@ -22,17 +22,21 @@ namespace Scripts.Network.Packets
         {
             lock (_lock)
             {
-                _packets.Enqueue(packet);
+                var pkt = _packetManager.OnRecvPacket(packet);
+                _packets.Enqueue(pkt);
             }
         }
         public void FlushPackets(ServerSession session)
         {
-            lock (_lock)
+            while (true)
             {
-                while (_packets.Count > 0)
+                lock (_lock)
                 {
-                    var packet = _packets.Dequeue();
-                    _packetManager.OnRecvPacket(session, packet);
+                    if (_packets.Count <= 0)
+                        break;
+
+                    IPacket packet = _packets.Dequeue();
+                    _packetManager.HandlePacket(session, packet);
                 }
             }
         }
