@@ -1,15 +1,17 @@
 ﻿using Assets.Scripts.Entities;
+using Scripts.Core;
 using Scripts.Core.GameSystem;
 using Scripts.Entities.Players.MyPlayers;
+using Scripts.Network;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.Entities.Players
+namespace Scripts.Entities.Players.MyPlayers
 {
-    public class PlayerAttackComponent : MonoBehaviour, IEntityComponent
+    public class MyPlayerAttackCompo : MonoBehaviour, IEntityComponent
     {
-        
+
         private PlayerInputSO playerInput;
         [SerializeField] private LineRenderer line;
         [SerializeField] private LayerMask _wallLayer;
@@ -22,13 +24,9 @@ namespace Scripts.Entities.Players
         private float _lastAttackTime;
         private Transform firePos => _currentGun.FirePos;
         private float attackDelay => _currentGun.attackDelay;
-        private int _shootHash;
-        private PlayerAnimator _animator;
         public void Initialize(NetworkEntity entity)
         {
-            _shootHash = Animator.StringToHash("Shoot");
             _currentGun = guns[0];
-            _animator = entity.GetCompo<PlayerAnimator>();
             playerInput = (entity as MyPlayer).PlayerInput;
             playerInput.OnAimEvent += HandleAim;
             line.transform.parent = null;
@@ -55,13 +53,18 @@ namespace Scripts.Entities.Players
             while (true)
             {
                 _lastAttackTime = Time.time;
-                _animator.SetParam(_shootHash);
+                Instantiate(bulletPrefab, firePos.position, Quaternion.LookRotation(_direction));
+                var ray = Physics2D.Raycast(firePos.position, _direction, 123, _wallLayer);
+                C_ShootReq req = new C_ShootReq();
+                req.firePos = firePos.position.ToPacket();
+                req.direction = _direction.ToPacket();
+                if (ray && ray.collider.TryGetComponent(out Player player))
+                    req.hitPlayerIndex = player.Index;
+                else
+                    req.hitPlayerIndex = 0;
+                NetworkManager.Instance.SendPacket(req);
                 yield return _currentGun.Wait;
             }
-        }
-        public void ShootBullet()
-        {
-            Instantiate(bulletPrefab, firePos.position, Quaternion.LookRotation(_direction));
         }
         private void HandleAim(bool obj)
         {

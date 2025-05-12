@@ -1,16 +1,15 @@
 ﻿using Assets.Scripts.Entities;
-using System;
-using UnityEngine;
+using Scripts.Entities.Players.MyPlayers;
 
 namespace Scripts.Entities.Players.States
 {
     public abstract class PlayerAimState : PlayerState
     {
-        private PlayerAttackComponent _attackCompo;
+        private MyPlayerAttackCompo _attackCompo;
         private EntityAnimatorTrigger _triggerCompo;
         public PlayerAimState(NetworkEntity entity, int animationHash) : base(entity, animationHash)
         {
-            _attackCompo = entity.GetCompo<PlayerAttackComponent>();
+            _attackCompo = entity.GetCompo<MyPlayerAttackCompo>();
             _triggerCompo = _player.GetCompo<EntityAnimatorTrigger>();
         }
         public override void Enter()
@@ -18,19 +17,13 @@ namespace Scripts.Entities.Players.States
             base.Enter();
             _player.PlayerInput.OnAttackEvent += _attackCompo.HandleAttack;
             _player.PlayerInput.OnAimEvent += HandleAim;
-            _triggerCompo.OnAttackTrigger += HandleAttack;
         }
 
         public override void Exit()
         {
-            _triggerCompo.OnAttackTrigger -= HandleAttack;
             _player.PlayerInput.OnAttackEvent -= _attackCompo.HandleAttack;
             _player.PlayerInput.OnAimEvent -= HandleAim;
             base.Exit();
-        }
-        private void HandleAttack()
-        {
-            _attackCompo.ShootBullet();
         }
         private void HandleAim(bool obj)
         {

@@ -1,4 +1,5 @@
-﻿using Core.EventSystem;
+﻿using Assets.Scripts.Entities.Players.OtherPlayers;
+using Core.EventSystem;
 using Scripts.Core;
 using Scripts.Core.EventSystem;
 using Scripts.Core.Managers;
@@ -89,6 +90,13 @@ class PacketHandler
                 continue;
             var movement = player.GetCompo<OtherPlayerMovement>();
             movement.AddSnapshot(item);
+        }
+        foreach(var item in p.attacks)
+        {
+            if (item.attackerIndex == PlayerManager.Instance.MyIndex)
+                continue;
+            var player = PlayerManager.Instance.GetPlayerById(item.attackerIndex);
+            player.GetCompo<OtherPlayerAttackCompo>().Shoot(item.firePos.ToVector3(),item.direction.ToVector3());
         }
     }
 }
