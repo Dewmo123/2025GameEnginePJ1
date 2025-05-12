@@ -27,7 +27,7 @@ namespace Scripts.Network
                 Destroy(gameObject);
             _connector = new Connector();
             _packetQueue = new PacketQueue(packetChannel);
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("192.168.35.152"), 7777);
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("172.31.0.186"), 7777);
             _connector.Connect(endPoint, () => _session = new ServerSession(_packetQueue), 1);
         }
         public void SendPacket(IPacket packet)
