@@ -28,7 +28,10 @@ namespace Scripts.Entities.Players.States
         private void HandleAim(bool obj)
         {
             if (obj == false)
+            {
+                _attackCompo.HandleAttack(false);
                 _player.ChangeState("Idle");
+            }
         }
 
     }

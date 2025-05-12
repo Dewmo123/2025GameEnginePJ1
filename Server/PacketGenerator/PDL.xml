@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <!--가독성을 위해 dataPacket을 제일 위부터 쓰기!!-->
-<!--List는 밑에 하나의 원소만 존재&원소의 이름은 무시-->
 <PDL>
-
 	<dataPacket name ="VectorPacket">
 		<float name="x"/>
 		<float name="y"/>
 		<float name="z"/>
 	</dataPacket>
+	
 	<dataPacket name ="QuaternionPacket">
 		<float name="x"/>
 		<float name="y"/>
 		<float name="z"/>
 		<float name="w"/>
 	</dataPacket>
+	
 	<dataPacket name="RoomInfoPacket">
 		<int name ="roomId"/>
 		<int name ="maxCount"/>
@@ -21,7 +21,7 @@
 		<string name="roomName"/>
 	</dataPacket>
 
-	<dataPacket name="PlayerInfoPacket">
+	<dataPacket name="LocationInfoPacket">
 		<int name="index"/>
 		<int name="animHash"/>
 		<bool name="isAiming"/>
@@ -38,12 +38,24 @@
 		<QuaternionPacket name="rotation"/>
 	</dataPacket>
 	
+	<dataPacket name ="TeamInfoPacket">
+		<int name="index"/>
+		<ushort name="team"/>
+	</dataPacket>
+
+	<dataPacket name="AttackInfoBr">
+		<int name="hitPlayerIndex"/>
+		<int name="attackerIndex"/>
+		<VectorPacket name="firePos"/>
+		<VectorPacket name="direction"/>
+	</dataPacket>
+	
 	<packet name="C_RoomEnter">
 		<int name ="roomId"/>
 	</packet>
 	
 	<packet name="S_RoomEnter">
-		<PlayerInfoPacket name="newPlayer"/>
+		<LocationInfoPacket name="newPlayer"/>
 	</packet>
 	
 	<packet name="C_RoomExit">
@@ -73,19 +85,32 @@
 	<packet name ="S_EnterRoomFirst">
 		<int name="myIndex"/>
 		<list name="playerInfos">
-			<playerInfoPacket name="att"/>
+			<locationInfoPacket name="att"/>
 		</list>
 	</packet>
 	
 	<packet name="S_UpdateInfos">
 		<list name="playerInfos">
-			<playerInfoPacket name="att"/>
+			<locationInfoPacket name="att"/>
 		</list>
 		<list name="snapshots">
 			<snapshotPacket name="att"/>
 		</list>
+		<list name="attacks">
+			<attackInfoBr name="att"/>
+		</list>
 	</packet>
-	<packet name="C_UpdateInfo">
-		<PlayerInfoPacket name="playerInfo"/>
+	<packet name="C_UpdateLocation">
+		<LocationInfoPacket name="location"/>
+	</packet>
+	<packet name="S_TeamInfos">
+		<list name="teamInfos">
+			<teamInfoPacket name="att"/>
+		</list>
+	</packet>
+	<packet name="C_ShootReq">
+		<int name="hitPlayerIndex"/>
+		<VectorPacket name="firePos"/>
+		<VectorPacket name="direction"/>
 	</packet>
 </PDL>

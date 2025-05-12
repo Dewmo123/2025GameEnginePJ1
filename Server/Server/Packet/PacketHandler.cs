@@ -21,6 +21,8 @@ class PacketHandler
     {
         var enterPacket = packet as C_RoomEnter;
         var clientSession = session as ClientSession;
+        if (clientSession.Room != null)
+            return;
         EnterRoomProcess(enterPacket.roomId, clientSession);
         Console.WriteLine("EnterRoom");
     }
@@ -30,22 +32,22 @@ class PacketHandler
         var room = _roomManager.GetRoomById(roomId);
         if (room == default)
             throw new NullReferenceException();
-        clientSession.myInfo = new PlayerInfoPacket()
+        clientSession.location = new LocationInfoPacket()
         {
             isAiming = false,
-            position = new VectorPacket(),
+            position = new VectorPacket() { x = -1.76f, y = 0, z = -19.13f },
             rotation = new QuaternionPacket(),
             mouse = new VectorPacket(),
             animHash = 0,
             index = clientSession.SessionId
         };
-        if (_roomManager.EnterRoom(clientSession, roomId))
+        if (room.CanAddPlayer)
         {
-            room.FirstEnterProcess(clientSession.SessionId);
-            Thread.Sleep(100);
             room.Push(() =>
             {
-                room.Broadcast(new S_RoomEnter() { newPlayer = clientSession.myInfo });
+                room.Enter(clientSession);
+                room.FirstEnterProcess(clientSession);
+                room.Broadcast(new S_RoomEnter() { newPlayer = clientSession.location });
                 Console.WriteLine("Broadcast");
             });
         }
@@ -56,7 +58,6 @@ class PacketHandler
         var clientSession = session as ClientSession;
         var room = clientSession.Room;
         room.Push(() => room.Leave(clientSession.SessionId));
-        room.Push(() => room.Broadcast(new S_RoomExit() { Index = clientSession.SessionId }));
         Console.WriteLine($"Leave Room: {clientSession.SessionId}");
     }
 
@@ -69,10 +70,19 @@ class PacketHandler
         clientSession.Send(roomList.Serialize());
     }
 
-    internal static void C_UpdateInfoHandler(PacketSession session, IPacket packet)
+    internal static void C_UpdateLocationHandler(PacketSession session, IPacket packet)
     {
         var clientSession = session as ClientSession;
-        var playerPacket = packet as C_UpdateInfo;
-        clientSession.myInfo = playerPacket.playerInfo;
+        var playerPacket = packet as C_UpdateLocation;
+        clientSession.location = playerPacket.location;
+    }
+
+    internal static void C_ShootReqHandler(PacketSession session, IPacket packet)
+    {
+        var clientSession = session as ClientSession;
+        var shootReq = packet as C_ShootReq;
+        if (clientSession.Room == null)
+            return;
+        clientSession.Room.Push(() => clientSession.Room.Attack(clientSession,shootReq));
     }
 }
