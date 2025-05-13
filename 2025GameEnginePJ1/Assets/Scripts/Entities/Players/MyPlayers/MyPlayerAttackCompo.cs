@@ -22,6 +22,7 @@ namespace Scripts.Entities.Players.MyPlayers
         private bool _isAiming;
         private Coroutine _shooting;
         private float _lastAttackTime;
+        public Gun CurrentGun => _currentGun;
         private Transform firePos => _currentGun.FirePos;
         private float attackDelay => _currentGun.attackDelay;
         public void Initialize(NetworkEntity entity)
@@ -54,17 +55,22 @@ namespace Scripts.Entities.Players.MyPlayers
             {
                 _lastAttackTime = Time.time;
                 Instantiate(bulletPrefab, firePos.position, Quaternion.LookRotation(_direction));
-                var ray = Physics2D.Raycast(firePos.position, _direction, 123, _wallLayer);
+                var ray = Physics.Raycast(firePos.position, _direction,out RaycastHit hit, 123, _wallLayer);
                 C_ShootReq req = new C_ShootReq();
                 req.firePos = firePos.position.ToPacket();
                 req.direction = _direction.ToPacket();
-                if (ray && ray.collider.TryGetComponent(out Player player))
+                if (ray && hit.collider.TryGetComponent(out Player player))
                     req.hitPlayerIndex = player.Index;
                 else
                     req.hitPlayerIndex = 0;
                 NetworkManager.Instance.SendPacket(req);
                 yield return _currentGun.Wait;
             }
+        }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(firePos.position, _direction);
         }
         private void HandleAim(bool obj)
         {
@@ -105,8 +111,6 @@ namespace Scripts.Entities.Players.MyPlayers
         private void SetLine()
         {
             positions[0] = firePos.position;
-            Debug.DrawRay(_currentGun.transform.position, _direction * 10f, Color.red);
-
             if (Physics.Raycast(_currentGun.transform.position, _direction, out RaycastHit ray, 100, _wallLayer))
                 positions[1] = ray.point;
             else

@@ -27,7 +27,7 @@
 		<bool name="isAiming"/>
 		<VectorPacket name="position"/>
 		<QuaternionPacket name="rotation"/>
-		<VectorPacket name="mouse"/>
+		<QuaternionPacket name="gunRotation"/>
 	</dataPacket>
 	
 	<dataPacket name="SnapshotPacket">
@@ -36,6 +36,7 @@
 		<long name="timestamp"/>
 		<VectorPacket name="position"/>
 		<QuaternionPacket name="rotation"/>
+		<QuaternionPacket name="gunRotation"/>
 	</dataPacket>
 	
 	<dataPacket name ="TeamInfoPacket">

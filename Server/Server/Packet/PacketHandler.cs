@@ -37,7 +37,7 @@ class PacketHandler
             isAiming = false,
             position = new VectorPacket() { x = -1.76f, y = 0, z = -19.13f },
             rotation = new QuaternionPacket(),
-            mouse = new VectorPacket(),
+            gunRotation = new QuaternionPacket(),
             animHash = 0,
             index = clientSession.SessionId
         };

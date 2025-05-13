@@ -1610,7 +1610,7 @@ MonoBehaviour:
   line: {fileID: 6008650947221007539}
   _wallLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   bulletPrefab: {fileID: 8965138303490533436, guid: 08777d7fbe1e6e84a9a12f70768de047, type: 3}
   guns:
   - {fileID: 688674562262146903}

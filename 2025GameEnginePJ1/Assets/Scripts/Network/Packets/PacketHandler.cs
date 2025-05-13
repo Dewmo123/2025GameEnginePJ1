@@ -97,6 +97,7 @@ class PacketHandler
                 continue;
             var player = PlayerManager.Instance.GetPlayerById(item.attackerIndex);
             player.GetCompo<OtherPlayerAttackCompo>().Shoot(item.firePos.ToVector3(),item.direction.ToVector3());
+            Debug.Log(item.hitPlayerIndex);
         }
     }
 }

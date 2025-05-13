@@ -27,7 +27,7 @@ namespace Server.Rooms.States
                     animHash = 0,
                     index = key,
                     isAiming = false,
-                    mouse = new VectorPacket(),
+                    gunRotation = new QuaternionPacket(),
                     position = new VectorPacket(),
                     rotation = new QuaternionPacket()
                 });
@@ -46,6 +46,7 @@ namespace Server.Rooms.States
                     position = info.position,
                     rotation = info.rotation,
                     animHash = info.animHash,
+                    gunRotation = info.gunRotation,
                     timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
                 });
                 //Console.WriteLine(DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());

@@ -110,7 +110,7 @@ public class LocationInfoPacket : IDataPacket
     public bool isAiming;
     public VectorPacket position;
     public QuaternionPacket rotation;
-    public VectorPacket mouse;
+    public QuaternionPacket gunRotation;
 
     public ushort Deserialize(ArraySegment<byte> segment, int offset)
     {
@@ -120,7 +120,7 @@ public class LocationInfoPacket : IDataPacket
         count += PacketUtility.ReadBoolData(segment, count, out isAiming);
         count += PacketUtility.ReadDataPacketData(segment, count, out position);
         count += PacketUtility.ReadDataPacketData(segment, count, out rotation);
-        count += PacketUtility.ReadDataPacketData(segment, count, out mouse);
+        count += PacketUtility.ReadDataPacketData(segment, count, out gunRotation);
         return (ushort)(count - offset);
     }
 
@@ -132,7 +132,7 @@ public class LocationInfoPacket : IDataPacket
         count += PacketUtility.AppendBoolData(this.isAiming, segment, count);
         count += PacketUtility.AppendDataPacketData(this.position, segment, count);
         count += PacketUtility.AppendDataPacketData(this.rotation, segment, count);
-        count += PacketUtility.AppendDataPacketData(this.mouse, segment, count);
+        count += PacketUtility.AppendDataPacketData(this.gunRotation, segment, count);
         return (ushort)(count - offset);
     }
 }
@@ -144,6 +144,7 @@ public class SnapshotPacket : IDataPacket
     public long timestamp;
     public VectorPacket position;
     public QuaternionPacket rotation;
+    public QuaternionPacket gunRotation;
 
     public ushort Deserialize(ArraySegment<byte> segment, int offset)
     {
@@ -153,6 +154,7 @@ public class SnapshotPacket : IDataPacket
         count += PacketUtility.ReadLongData(segment, count, out timestamp);
         count += PacketUtility.ReadDataPacketData(segment, count, out position);
         count += PacketUtility.ReadDataPacketData(segment, count, out rotation);
+        count += PacketUtility.ReadDataPacketData(segment, count, out gunRotation);
         return (ushort)(count - offset);
     }
 
@@ -164,6 +166,7 @@ public class SnapshotPacket : IDataPacket
         count += PacketUtility.AppendLongData(this.timestamp, segment, count);
         count += PacketUtility.AppendDataPacketData(this.position, segment, count);
         count += PacketUtility.AppendDataPacketData(this.rotation, segment, count);
+        count += PacketUtility.AppendDataPacketData(this.gunRotation, segment, count);
         return (ushort)(count - offset);
     }
 }

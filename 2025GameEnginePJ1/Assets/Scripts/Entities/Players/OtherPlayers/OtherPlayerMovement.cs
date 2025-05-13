@@ -1,4 +1,5 @@
 using Assets.Scripts.Entities;
+using Assets.Scripts.Entities.Players.OtherPlayers;
 using Scripts.Core;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,19 @@ namespace Scripts.Entities.Players.OtherPlayers
         public long InterpolationBackTime = 5; // 200ms 뒤쳐지게 보간
 
         public List<SnapshotPacket> _snapshots = new List<SnapshotPacket>();
-        private Vector3 _mousePos;
         private Vector3 _serverPos;
         private Vector3 _prevInterpPos;
 
         private int _currentAnimHash;
-
+        private OtherPlayerAttackCompo _attackCompo;
+        public override void Initialize(NetworkEntity entity)
+        {
+            base.Initialize(entity);
+            _attackCompo = entity.GetCompo<OtherPlayerAttackCompo>();
+        }
         public void Synchronize(LocationInfoPacket packet)
         {
             IsAiming = packet.isAiming;
-            _mousePos = packet.mouse.ToVector3();
             SetPosition(packet.position.ToVector3());
         }
         public void AddSnapshot(SnapshotPacket pak)
@@ -56,9 +60,10 @@ namespace Scripts.Entities.Players.OtherPlayers
                     SetAnimation(interpPos, newer.animHash);
                     _prevInterpPos = interpPos;
                     Quaternion interpRot = Quaternion.Slerp(older.rotation.ToQuaternion(), newer.rotation.ToQuaternion(), t);
-
+                    Quaternion interpGunRot = Quaternion.Slerp(older.gunRotation.ToQuaternion(), newer.gunRotation.ToQuaternion(), t);
                     _player.transform.position = interpPos;
                     _player.transform.rotation = interpRot;
+                    _attackCompo.currentGun.transform.rotation = interpGunRot;
                     return;
                 }
             }

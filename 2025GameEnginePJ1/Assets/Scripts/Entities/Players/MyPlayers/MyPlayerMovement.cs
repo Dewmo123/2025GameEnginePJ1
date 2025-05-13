@@ -29,6 +29,7 @@ namespace Scripts.Entities.Players.MyPlayers
         private MyPlayer _myPlayer;
         protected Vector3 _direction;
         protected Vector3 _velocity;
+        private MyPlayerAttackCompo _attackCompo;
         public enum WalkMode
         {
             Idle,
@@ -44,6 +45,7 @@ namespace Scripts.Entities.Players.MyPlayers
             _playerInput.OnAimEvent += HandleAim;
             _playerInput.OnSprintEvent += HandleSprint;
             _currentSpeed = walkSpeed;
+            _attackCompo = entity.GetCompo<MyPlayerAttackCompo>();
             _controller = entity.GetComponent<CharacterController>();
 
         }
@@ -114,7 +116,7 @@ namespace Scripts.Entities.Players.MyPlayers
                     position = _player.transform.position.ToPacket(),
                     index = _player.Index,
                     isAiming = IsAiming,
-                    mouse = _playerInput.GetWorldPosition().ToPacket(),
+                    gunRotation = _attackCompo.CurrentGun.transform.rotation.ToPacket(),
                     animHash = _myPlayer.CurrentAnimHash
                 }
             };
